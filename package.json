@@ -1,0 +1,17 @@
+{
+  "name": "wechat",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "app.js",
+  "dependencies": {
+    "@broid/wechat": "^2.0.0",
+    "express": "^4.15.3",
+    "parse": "^1.9.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "WillisChou <dsa663838@gmail.com> (https://github.com/Willis0826)",
+  "license": "MIT"
+}
