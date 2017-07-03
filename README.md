@@ -2,6 +2,7 @@
 WeChat API、Parse Server、Broid-WeChat
 
 # Broid-WeChat 修改
+/lib/core/Parser.js 修改 line:51 getUserName Function
 ```javascript
 getUserName(openid) {
         if (this.userCache[openid]) {

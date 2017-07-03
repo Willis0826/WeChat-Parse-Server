@@ -43,13 +43,13 @@ ReceiveMessage : function(userInfo, messageInfo, targetInfo){
         //沒有找到使用者, 建立一個 customer with id & platform & headimgurl & displayName
         return Promise.resolve(integrationObj).then((integrationObj) => {
           console.log("Start Create Customer ! ");
-          if(userInfo.id == undefined){
+          if (userInfo.id == undefined) {
             return Promise.reject(new Error("Bad User Data : userInfo.id is undefined"));
           }
-          if(userInfo.name == undefined){
+          if (userInfo.name == undefined) {
             return Promise.reject(new Error("Bad User Data : userInfo.name is undefined"));
           }
-          if(userInfo.headimgurl == undefined){
+          if (userInfo.headimgurl == undefined) {
             return Promise.reject(new Error("Bad User Data : userInfo.headimgurl is undefined"));
           }
 
@@ -75,20 +75,31 @@ ReceiveMessage : function(userInfo, messageInfo, targetInfo){
   })
   .then(({customerInfo, integrationInfo})=>{
     //儲存訊息到Parse Server Message中
-    let resolve = Parse.Cloud.run("proxyConversation", {
-      from: customerInfo.toPointer(),
-      customer: customerInfo.toPointer(),
-      integration: integrationInfo.toPointer(),
-      message: {
-        contentType: `text/plain`,
-        data: {
-          content: messageInfo.content
+    if (messageInfo.type === 'Note') {
+      let resolve = Parse.Cloud.run("proxyConversation", {
+        from: customerInfo.toPointer(),
+        customer: customerInfo.toPointer(),
+        integration: integrationInfo.toPointer(),
+        message: {
+          contentType: `text/plain`,
+          data: {
+            content: messageInfo.content
+          }
         }
-      }
-      }, {
-      useMasterKey: true
-    });
-    return resolve;
+        }, {
+        useMasterKey: true
+      });
+      return resolve;
+    }
+    else if (messageInfo.type === 'Image') {
+
+    }
+    else if (messageInfo.type === 'Video') {
+
+    }
+    else if (messageInfo.type === 'Audio') {
+
+    }
   })
   .catch(function(error){
     console.log(error);

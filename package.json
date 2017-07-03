@@ -8,7 +8,9 @@
     "express": "^4.15.3",
     "parse": "^1.9.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "serverless-plugin-simulate": "0.0.17"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
