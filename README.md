@@ -18,3 +18,12 @@ getUserName(openid) {
         });
     }
 ```
+
+# NPM 執行
+提供環境變數，Script執行```serverless invoke local --function < Function Name >```，並且提供 Event 內容。<br>
+```env $(cat < ENV File > ) npm run < Script Name > -- --path < Lambda Event File >```<br>
+
+參考:
+* [NPM Run Script](https://docs.npmjs.com/cli/run-script)
+* [Invoke Local Lambda](https://serverless.com/framework/docs/providers/aws/cli-reference/invoke-local/)
+* [Passing ENV Bariables](https://www.digitalocean.com/community/questions/passing-environment-variables-to-node-js-using-pm2)
