@@ -6,7 +6,7 @@
   "dependencies": {
     "@broid/wechat": "^2.0.0",
     "express": "^4.15.3",
-    "parse": "^1.9.2"
+    "parse": "^2.10.0"
   },
   "devDependencies": {
     "serverless-plugin-simulate": "0.0.17"
